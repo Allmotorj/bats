@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Bat List</h1>
+
+{% for bat in bats %}
+  <div class="card">
+    <a href="{% url 'detail' bat.id %}">
+      <div class="card-content">
+        <span class="card-title">{{ bat.name }}</span>
+        <p>Breed: {{ bat.breed }}</p>
+        <p>Description: {{ bat.description }}</p>
+        {% if bat.age > 0 %}
+          <p>Age: {{ bat.age }}</p>
+        {% else %}
+          <p>Age: Kitten</p>
+        {% endif %}
+      </div>
+    </a>
+  </div>
+{% endfor %}
+
+{% endblock %}
